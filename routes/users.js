@@ -36,8 +36,28 @@ router.get("/:id", (req, res) => {
 //delete single user
 router.delete("/:id", (req, res) => {
     const id = req.params.id
-    users = users.filter(user => user.id !== id)
-    res.send(users)
+
+    res.send(users.filter(user => user.id !== id))
+})
+
+//modify user
+router.patch("/:id", (req, res) => {
+    const id = req.params.id
+
+    const {
+        firstname,
+        lastname,
+        age
+    } = req.body
+    const user = users.find((user) => user.id === id)
+    if (firstname) user.firstname = firstname
+
+    if (lastname) user.lastname = lastname
+
+    if (age) user.age = age
+
+    res.send(user)
+    console.log(user)
 })
 
 export default router
