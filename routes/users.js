@@ -24,8 +24,10 @@ router.get("/", (req, res) => {
 //post users to the database
 
 router.post("/", (req, res) => {
-    console.log("POST request made")
-    res.send("posts data to the db")
+    const user = req.body
+    users.push(user)
+    res.send(`${user.firstname} has been added to the database`)
+    console.log(`${user.firstname} has been added to the database`)
 })
 
 
