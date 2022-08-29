@@ -10,7 +10,7 @@ app.use(bodyParser.json())
 app.use("/users", usersRoute)
 
 app.get("/", (req, res) => {
-    res.send("this isn the home page")
+    res.send("this is the home page")
 })
 
 app.listen(port, () =>
